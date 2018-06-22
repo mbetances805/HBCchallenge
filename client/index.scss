@@ -37,10 +37,11 @@ body {
     outline: none;
     border-radius: 25px;
     box-shadow: 5px 10px 18px #888888;
+    border: black;
   }
-
-  .generate-pairing-button:disabled {
-    background-color: darkgrey;
+  
+  .generate-pairing-button:hover {
+    background-color: lightseagreen;
   }
 
   .user-list-container {
@@ -70,7 +71,7 @@ body {
   }
 
   .user-pair-container {
-    border: 1px solid black;
+    border: 1px solid lightseagreen;
     margin-bottom: 1em;
     width: 8em;
     height: 8em;

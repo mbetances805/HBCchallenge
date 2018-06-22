@@ -18,14 +18,13 @@ class Main extends Component {
 
   generatePairing = () => {
     const {users} = this.props.userList;
-    this.setState({ pairs: [] });
-    let partnerList = this.shuffle(users.slice(0));
-    let userPairs = [];
+    const partnerList = this.shuffle(users.slice(0));
+    const userPairs = [];
     for (let i = 0; i < partnerList.length; i++) {
       let partnerIndex = (i + 1) % partnerList.length;
       userPairs.push({'gifter': partnerList[i], 'giftee': partnerList[partnerIndex]});
     }
-    this.setState({ pairs: [...this.state.pairs, ...userPairs], isPaired: true });
+    this.setState({ pairs: [...userPairs] });
   };
 
   shuffle = (arr) => {
@@ -48,22 +47,12 @@ class Main extends Component {
         <h1>{'Secret Santa Application'}</h1>
         <p>{'Click the button  for a list of secret santa pairings.'}</p>
         <hr />
-        {
-          this.state.isPaired ?
-          <button
-            className='generate-pairing-button'
-            onClick={this.generatePairing}
-            disabled
-          >
-            {'Generate Pairings'}
-          </button> :
-          <button
-            className='generate-pairing-button'
-            onClick={this.generatePairing}
-          >
-            {'Generate Pairings'}
-          </button>
-        }
+        <button
+          className='generate-pairing-button'
+          onClick={this.generatePairing}
+        >
+          {'Generate Pairings'}
+        </button>
         <div className='main-container'>
           <div className='user-list-legend'>
             <span>{'Legend: '}</span>
@@ -96,6 +85,7 @@ class Main extends Component {
 
 export default Main
 
+// to populate
 Main.propTypes = {
-  children: PropTypes.object
+
 };

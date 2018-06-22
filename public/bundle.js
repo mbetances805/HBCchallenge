@@ -6362,8 +6362,6 @@ var _index = __webpack_require__(34);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -6381,14 +6379,13 @@ var Main = function (_Component) {
     _this.generatePairing = function () {
       var users = _this.props.userList.users;
 
-      _this.setState({ pairs: [] });
       var partnerList = _this.shuffle(users.slice(0));
       var userPairs = [];
       for (var i = 0; i < partnerList.length; i++) {
         var partnerIndex = (i + 1) % partnerList.length;
         userPairs.push({ 'gifter': partnerList[i], 'giftee': partnerList[partnerIndex] });
       }
-      _this.setState({ pairs: [].concat(_toConsumableArray(_this.state.pairs), userPairs), isPaired: true });
+      _this.setState({ pairs: [].concat(userPairs) });
     };
 
     _this.shuffle = function (arr) {
@@ -6437,15 +6434,7 @@ var Main = function (_Component) {
           'Click the button  for a list of secret santa pairings.'
         ),
         _react2.default.createElement('hr', null),
-        this.state.isPaired ? _react2.default.createElement(
-          'button',
-          {
-            className: 'generate-pairing-button',
-            onClick: this.generatePairing,
-            disabled: true
-          },
-          'Generate Pairings'
-        ) : _react2.default.createElement(
+        _react2.default.createElement(
           'button',
           {
             className: 'generate-pairing-button',
@@ -6503,10 +6492,9 @@ var Main = function (_Component) {
 
 exports.default = Main;
 
+// to populate
 
-Main.propTypes = {
-  children: _propTypes2.default.object
-};
+Main.propTypes = {};
 
 /***/ }),
 /* 89 */
@@ -6744,7 +6732,7 @@ exports = module.exports = __webpack_require__(95)();
 
 
 // module
-exports.push([module.i, "body {\n  font-family: 'Playfair Display', serif; }\n  body a {\n    text-decoration: none; }\n  body label {\n    display: block; }\n  body nav a {\n    display: inline-block;\n    margin: 1em; }\n  body form div {\n    margin: 1em;\n    display: inline-block; }\n  body .main-container {\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr; }\n  body .generate-pairing-button {\n    grid-column: 2;\n    display: block;\n    margin: auto;\n    padding: 1em;\n    margin-bottom: 3em;\n    color: white;\n    background-color: black;\n    font-size: 1em;\n    letter-spacing: 2px;\n    outline: none;\n    border-radius: 25px;\n    box-shadow: 5px 10px 18px #888888; }\n  body .generate-pairing-button:disabled {\n    background-color: darkgrey; }\n  body .user-list-container {\n    grid-column: 2;\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    text-align: center;\n    justify-content: space-around; }\n  body .user-list-legend {\n    grid-column: 2;\n    margin: auto; }\n  body .giftee-legend {\n    color: grey; }\n  body .user-list-container h4 {\n    color: black; }\n  body .user-list-container h5 {\n    color: grey; }\n  body .user-pair-container {\n    border: 1px solid black;\n    margin-bottom: 1em;\n    width: 8em;\n    height: 8em; }\n  body .user-details-container {\n    grid-column: 2;\n    margin-top: 2em;\n    padding: 2em;\n    border-top: 2px solid grey; }\n  body .user-details-title {\n    padding-bottom: 1em;\n    font-size: 1em; }\n", ""]);
+exports.push([module.i, "body {\n  font-family: 'Playfair Display', serif; }\n  body a {\n    text-decoration: none; }\n  body label {\n    display: block; }\n  body nav a {\n    display: inline-block;\n    margin: 1em; }\n  body form div {\n    margin: 1em;\n    display: inline-block; }\n  body .main-container {\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr; }\n  body .generate-pairing-button {\n    grid-column: 2;\n    display: block;\n    margin: auto;\n    padding: 1em;\n    margin-bottom: 3em;\n    color: white;\n    background-color: black;\n    font-size: 1em;\n    letter-spacing: 2px;\n    outline: none;\n    border-radius: 25px;\n    box-shadow: 5px 10px 18px #888888;\n    border: black; }\n  body .generate-pairing-button:hover {\n    background-color: lightseagreen; }\n  body .user-list-container {\n    grid-column: 2;\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    text-align: center;\n    justify-content: space-around; }\n  body .user-list-legend {\n    grid-column: 2;\n    margin: auto; }\n  body .giftee-legend {\n    color: grey; }\n  body .user-list-container h4 {\n    color: black; }\n  body .user-list-container h5 {\n    color: grey; }\n  body .user-pair-container {\n    border: 1px solid lightseagreen;\n    margin-bottom: 1em;\n    width: 8em;\n    height: 8em; }\n  body .user-details-container {\n    grid-column: 2;\n    margin-top: 2em;\n    padding: 2em;\n    border-top: 2px solid grey; }\n  body .user-details-title {\n    padding-bottom: 1em;\n    font-size: 1em; }\n", ""]);
 
 // exports
 
